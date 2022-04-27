@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Box } from "@chakra-ui/react";
+
+// Components
+import MessageInputCard from "./components/MessageInputCard";
+import MessageList from "./components/MessageList";
+
+// Context Provider
+import { MessageContextProvider } from "./contexts/MessageContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <MessageContextProvider>
+      <Box w="100%" d="flex" justifyContent={"center"}>
+        <Box
+          w={["100%", null, null, "80%"]}
+          d="flex"
+          justifyContent={"space-between"}
+          flexDirection={["column", null, null, "row"]}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <MessageInputCard />
+          <MessageList />
+        </Box>
+      </Box>
+    </MessageContextProvider>
   );
 }
 
